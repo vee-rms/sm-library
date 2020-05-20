@@ -1,0 +1,17 @@
+<div class="sm-input-container">
+
+    <mat-form-field class="sm-full-width">
+  
+      <mat-placeholder>
+        <span>{{labelPrefix ? labelPrefix : ''}}{{control ? control.label : 'No Control'}}</span>
+        <mat-icon *ngIf="control.tooltip" [matTooltip]="control.tooltip">info</mat-icon>
+      </mat-placeholder>
+  
+      <input matInput [formControl]="control" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-hint *ngIf="logicalError" class="mat-error">{{logicalError}}</mat-hint>
+    <mat-error *ngIf="!logicalError">{{resolveError()}}</mat-error>
+  </div>

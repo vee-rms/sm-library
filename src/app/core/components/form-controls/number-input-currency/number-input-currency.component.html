@@ -1,0 +1,21 @@
+<div class="sm-input-container" *ngIf="show">
+    <mat-form-field class="sm-full-width mat-form-field-invalid" [class.mat-form-field-invalid]="logicalError">
+  
+      <mat-placeholder>
+        <span>{{labelPrefix ? labelPrefix : ''}}{{control ? control.label : 'No Control'}}</span>
+        <mat-icon *ngIf="control.tooltip" [matTooltip]="control.tooltip">info</mat-icon>
+      </mat-placeholder>
+  
+      <input matInput #input type="text" hideRequiredMarker="false" [formControl]="control" [name]="control ? control.name: ''"
+        [maxlength]="control ? control.maxInputLength : null" [minlength]="control ? control.minInputLength: null" [pattern]="control ? control.regex: null"
+        smDigitsOnly>
+
+      <span matSuffix>.00</span>
+      <mat-hint *ngIf="!control.readOnly" align="end">{{input.value.length}} / {{control.maxInputLength}}</mat-hint>
+      <mat-hint *ngIf="!hasLogical && hint">{{hint}}</mat-hint>
+      <mat-hint *ngIf="logicalError" class="mat-error">{{logicalError}}</mat-hint>
+      <mat-error *ngIf="!logicalError">{{resolveError()}}</mat-error>
+  
+    </mat-form-field>
+  
+  </div>

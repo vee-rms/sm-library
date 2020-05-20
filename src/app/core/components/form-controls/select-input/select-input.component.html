@@ -1,0 +1,21 @@
+<div class="sm-input-container" *ngIf="show">
+
+    <mat-form-field class="sm-full-width">
+  
+      <mat-placeholder>
+        <span>{{labelPrefix ? labelPrefix : ''}}{{control ? control.label : 'No Control'}}</span>
+        <mat-icon *ngIf="control.tooltip" [matTooltip]="control.tooltip">info</mat-icon>
+      </mat-placeholder>
+  
+      <mat-select [formControl]="control" [required]="control.errors !== null && control.errors.required" #select>
+  
+        <mat-option></mat-option>
+        <mat-option *ngFor="let option of options" [value]="option.value">
+          {{option.value}} - {{option.label}}
+        </mat-option>
+      </mat-select>
+  
+      <mat-hint *ngIf="logicalError" class="mat-error">{{logicalError}}</mat-hint>
+      <mat-error *ngIf="!logicalError">{{resolveError()}}</mat-error>
+    </mat-form-field>
+  </div>

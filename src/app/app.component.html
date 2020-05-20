@@ -1,0 +1,17 @@
+
+<form [FormGroup]="form">
+<div fxLayout="row">
+  <sm-text-input name="testText" fxFlex="100%" ></sm-text-input>
+</div>
+
+<div fxLayout="row">
+  <sm-select-input name="testSelect" fxFlex="50%" ></sm-select-input>
+</div>
+</form>
+
+<sm-button 
+[buttonText]="submit"
+[buttonSubmit]="true"
+[isDisabled]="isDisabled"
+(buttonClick)="submit()">
+</sm-button>
