@@ -51,13 +51,13 @@ export class FormFieldControl extends FormControl {
 
         super('', validator, asyncValidator);
 
-        // ensure we have field data
+    
         if (!fieldData) {
             console.warn(`AbstractFormField: No field data`);
             return;
         }
 
-        // map the container fields
+
         if (!fieldData.name) {
             console.warn('AbstractFormField: No key');
             return;
@@ -84,14 +84,13 @@ export class FormFieldControl extends FormControl {
         this.setReadOnly(fieldData.readOnly);
         this.setValue(fieldData.value);
 
-        // set validators
-        // --------------------------------------------
+      
         this.setRequired(this._required ? true : false);
         this.useMax(Number.isInteger(this._maxInputLength));
         this.useMin(Number.isInteger(this._minInputLength));
         this.useRegex(this._regex ? true : false);
 
-        // This needs to be called last as the normal FormControl.set* clears any errors
+     
         this._setErrors(fieldData.errors);
 
     }
@@ -119,9 +118,7 @@ export class FormFieldControl extends FormControl {
 
     }
 
-    //////////////////////////////////////////////////////
-    //  Accessors functions
-    //////////////////////////////////////////////////////
+   
     get required() {
         return this._required;
     }
@@ -178,9 +175,7 @@ export class FormFieldControl extends FormControl {
         return this._dataType;
     }
 
-    //////////////////////////////////////////////////////
-    //  Validator functions
-    //////////////////////////////////////////////////////
+   
     public setRequired(isRequired: boolean) {
 
         if (isRequired) {
@@ -242,8 +237,7 @@ export class FormFieldControl extends FormControl {
             this.enable();
         }
 
-        // Ensure that, if this field is marked as readonly,
-        // we disable the required validator
+        
         const stillRequired = this._required && !isReadOnly;
         this.setRequired(stillRequired);
 
@@ -270,19 +264,15 @@ export class FormFieldControl extends FormControl {
         this._removeValidator(validator);
     }
 
-    //////////////////////////////////////////////////////
-    //  Helper functions
-    //////////////////////////////////////////////////////
+ 
 
     protected _addValidator(validator: ValidatorFn) {
 
-        // If this validator has already been added
-        // to the control, we need not add it again
+      
         if (this._hasValidator(validator)) {
             return;
         }
 
-        // Set the validator appropriately
         if (this.validator instanceof Array) {
             return this.validator.push(validator);
 
@@ -299,7 +289,7 @@ export class FormFieldControl extends FormControl {
             return;
         }
 
-        // Set the validator appropriately
+    
         if (this.validator instanceof Array) {
             this.setValidators(this.validator.filter(v => v !== validator));
 
@@ -311,13 +301,12 @@ export class FormFieldControl extends FormControl {
 
     protected _hasValidator(validator: ValidatorFn): boolean {
 
-        // check it his form control can be validated
+      
         if (!this.validator) {
             return false;
         }
 
-        // depending on whether the validator is an array
-        // or object, determine if it is already present
+     
         if (this.validator instanceof Array) {
             return this.validator.find(v => v === validator) !== undefined;
 

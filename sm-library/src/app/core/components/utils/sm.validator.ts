@@ -9,7 +9,7 @@ export class SMValidators {
 
         return function matchOtherValidate(control: FormFieldControl) {
 
-            // Initializing the validator.
+          
             if (!thisControl) {
                 thisControl = control;
                 if (!otherControl) {

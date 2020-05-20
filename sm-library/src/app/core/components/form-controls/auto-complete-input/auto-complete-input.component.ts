@@ -24,27 +24,6 @@ export class AutoCompleteInputComponent extends AbstractFormField implements OnI
 
   ngOnInit() {
 
-    // If a name is specified, look
-    // for the corresponding container field
-    // if (this.name) {
-    //   super.ngOnInit();
-
-    //   this.filteredOptions = this.control.valueChanges
-    //     .pipe(
-    //       startWith<string | Option>(''),
-    //       map(newValue => typeof newValue === 'string' ? newValue : newValue.label),
-    //       map(label => label ? this.filter(label) : this.options.slice()));
-
-    //   return;
-    // }
-
-  }
-
-  filter(val: string): string[] {
-    return this.options.filter(option => {
-      console.log(option);
-      return option.label.toLowerCase().includes(val.toLowerCase());
-    });
   }
 
   displayFn(option: any): string | undefined {
@@ -52,7 +31,6 @@ export class AutoCompleteInputComponent extends AbstractFormField implements OnI
   }
 
 }
-
 
 export interface Option {
   value: string;

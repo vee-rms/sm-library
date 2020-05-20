@@ -11,7 +11,6 @@
         [name]="control ? control.name: ''" [maxlength]="control ? control.maxInputLength : null" [minlength]="control ? control.minInputLength: null"
         [pattern]="control ? control.regex: null">
   
-      <!-- [type]="formControl.config.format" -->
       <mat-hint *ngIf="!readOnly && !hasLogical" align="end">{{input.value.length}} / {{control.maxInputLength}}</mat-hint>
       <mat-hint *ngIf="!hasLogical && hint">{{hint}}</mat-hint>
       <mat-hint *ngIf="hasLogical" class="mat-error">{{logicalError}}</mat-hint>

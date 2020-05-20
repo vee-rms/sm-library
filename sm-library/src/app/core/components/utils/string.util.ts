@@ -21,8 +21,7 @@ export class StringUtils {
 
     static formatAll(input, replacements) {
 
-        // var replacements = { "%NAME%": "Mike", "%AGE%": "26", "%EVENT%": "20" },
-        //     str = 'My Name is %NAME% and my age is %AGE%.';
+      
 
         input = input.replace(/%\w+%/g, function (all) {
             return replacements[all] || all;
@@ -33,8 +32,7 @@ export class StringUtils {
 
     static format(input, replacement) {
 
-        // var replacements = { "%NAME%": "Mike", "%AGE%": "26", "%EVENT%": "20" },
-        //     str = 'My Name is %NAME% and my age is %AGE%.';
+    
 
         input = input.replace(/\{0\}/g, replacement);
 

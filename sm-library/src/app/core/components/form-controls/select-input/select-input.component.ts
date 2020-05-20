@@ -13,8 +13,7 @@ import { FormFieldControl } from '..';
 })
 export class SelectInputComponent extends AbstractFormField implements OnInit, AfterViewInit {
 
-  // @Input()
-  // displayMode = false;
+
 
   options: any[];
 
@@ -30,9 +29,6 @@ export class SelectInputComponent extends AbstractFormField implements OnInit, A
   }
 
   ngOnInit() {
-
-    // If a name is specified, look
-    // for the corresponding container field
     if (this.name) {
       super.ngOnInit();
     }
