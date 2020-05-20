@@ -52,12 +52,6 @@ export class ButtonComponent {
   buttonType: string;
 
 
-  private isDisabled: boolean;
-
-  private isActivated: boolean;
-
-
-
   constructor() {
 
     this.buttonClick = new EventEmitter<any>();
