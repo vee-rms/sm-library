@@ -1,0 +1,16 @@
+<div class="sm-input-container">
+   
+    <mat-form-field class="sm-full-width">
+  
+      <input matInput [formControl]="control" type="text" [name]="control ? control.name: ''" [placeholder]="control ? control.label : 'No Control'"
+        [matAutocomplete]="auto" [maxlength]="control ? control.maxInputLength : null" [minlength]="control ? control.minInputLength: null"
+        [required]="required">
+  
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{ option.label }}
+        </mat-option>
+      </mat-autocomplete>
+
+    </mat-form-field>
+  </div>
